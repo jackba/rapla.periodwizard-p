@@ -19,8 +19,10 @@ import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.List;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -34,7 +36,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 
-import org.apache.avalon.framework.activity.Disposable;
 import org.rapla.components.calendarview.Block;
 import org.rapla.components.calendarview.swing.SwingWeekView;
 import org.rapla.components.calendarview.swing.ViewListener;
@@ -44,10 +45,12 @@ import org.rapla.entities.User;
 import org.rapla.entities.domain.Allocatable;
 import org.rapla.entities.domain.Period;
 import org.rapla.entities.domain.Reservation;
+import org.rapla.entities.dynamictype.Classifiable;
 import org.rapla.entities.dynamictype.DynamicType;
 import org.rapla.facade.ModificationEvent;
 import org.rapla.facade.ModificationListener;
 import org.rapla.facade.PeriodModel;
+import org.rapla.framework.Disposable;
 import org.rapla.framework.RaplaContext;
 import org.rapla.framework.RaplaException;
 import org.rapla.gui.CalendarModel;
@@ -224,7 +227,9 @@ class WizardSequence extends RaplaGUIComponent
         }
 
         public void setReservation(Reservation reservation) throws RaplaException {
-            classificationField.mapFrom(reservation);
+            Classifiable classifiable = reservation;
+            List<Classifiable> singletonList = Collections.singletonList(classifiable);
+            classificationField.mapFrom(singletonList);
         }
 
         public ActionMap getActionMap() {
@@ -246,7 +251,9 @@ class WizardSequence extends RaplaGUIComponent
 
         public boolean checkReservation() {
             try {
-                classificationField.mapTo(reservation);
+                Classifiable classifiable = reservation;
+                List<Classifiable> singletonList = Collections.singletonList(classifiable);
+                classificationField.mapTo(singletonList);
             } catch (RaplaException ex) {
                 showException(ex,getComponent());
                 return false;
