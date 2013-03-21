@@ -142,7 +142,7 @@ class WizardSequence extends RaplaGUIComponent
                     }
                 }
                 if (command.equals(WizardPanel.FINISH)) {
-                    if (getReservationController().save(reservation,wizardDialog,false))
+                    if (getReservationController().save(reservation,wizardDialog))
                         wizardDialog.close();
                 }
             } catch (Exception ex) {
