@@ -3,7 +3,7 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry exported="true" kind="src" path="/Rapla">
 		<accessrules>
-			<accessrule kind="nonaccessible" pattern="**/internal/**"/>
+			<accessrule kind="discouraged" pattern="**/internal/**"/>
 			<accessrule kind="accessible" pattern="org/apache/avalon/**"/>
 			<accessrule kind="accessible" pattern="org/rapla/framework/*"/>
 			<accessrule kind="accessible" pattern="org/rapla/entities/**"/>
