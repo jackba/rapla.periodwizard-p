@@ -34,8 +34,8 @@ public class PeriodWizardPlugin implements PluginDescriptor {
     	if ( !config.getAttributeAsBoolean("enabled", ENABLE_BY_DEFAULT) )
         	return;
 
-        container.addContainerProvidedComponent( I18nBundle.ROLE, I18nBundleImpl.class.getName(), RESOURCE_FILE,I18nBundleImpl.createConfig( RESOURCE_FILE ) );
-        container.addContainerProvidedComponent( RaplaExtensionPoints.RESERVATION_WIZARD_EXTENSION, PeriodReservationWizard.class.getName(), PLUGIN_CLASS, config);
+        container.addContainerProvidedComponent( I18nBundle.class, I18nBundleImpl.class, RESOURCE_FILE,I18nBundleImpl.createConfig( RESOURCE_FILE ) );
+        container.addContainerProvidedComponent( RaplaExtensionPoints.RESERVATION_WIZARD_EXTENSION, PeriodReservationWizard.class);
     }
 
     public Object getPluginMetaInfos( String key )
