@@ -28,7 +28,7 @@ import org.rapla.gui.ReservationWizard;
  */
 public class PeriodReservationWizard extends RaplaGUIComponent implements ReservationWizard  {
 
-    public PeriodReservationWizard(RaplaContext sm) throws RaplaException {
+    public PeriodReservationWizard(RaplaContext sm) {
         super( sm);
         setChildBundleName( PeriodWizardPlugin.RESOURCE_FILE);
     }
