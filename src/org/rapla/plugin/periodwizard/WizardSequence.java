@@ -46,6 +46,7 @@ import org.rapla.entities.domain.Allocatable;
 import org.rapla.entities.domain.Period;
 import org.rapla.entities.domain.Reservation;
 import org.rapla.entities.dynamictype.Classifiable;
+import org.rapla.entities.dynamictype.Classification;
 import org.rapla.entities.dynamictype.DynamicType;
 import org.rapla.facade.CalendarModel;
 import org.rapla.facade.CalendarOptions;
@@ -157,9 +158,8 @@ class WizardSequence extends RaplaGUIComponent
         getLogger().debug("starting wizard");
         wizardDialog.setSize(800, 565);
 
-        reservation = getModification().newReservation();
-        if (dynamicType != null)
-            reservation.setClassification(dynamicType.newClassification());
+    	Classification newClassification = dynamicType.newClassification();
+		reservation = getModification().newReservation( newClassification );
         panel1.setStart( model.getSelectedDate());
         panel1.setReservation(reservation);
         panel2.setReservation(reservation);
