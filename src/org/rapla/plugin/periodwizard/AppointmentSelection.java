@@ -21,6 +21,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.Locale;
+import java.util.TimeZone;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -165,10 +166,9 @@ class AppointmentSelection extends AbstractAppointmentEditor
                 }
             });
             content.setLayout(tableLayout);
-            startTime = new RaplaTime(locale);
-            startTime.setTimeZone(DateTools.getTimeZone());
-            endTime = new RaplaTime(locale);
-            endTime.setTimeZone(DateTools.getTimeZone());
+            TimeZone timeTone = getRaplaLocale().getTimeZone();
+			startTime = new RaplaTime(locale,timeTone);
+            endTime = new RaplaTime(locale,timeTone);
             setAppointmentVisible(false);
             weekdayChooser = new WeekdayChooser(locale);
             weekdayChooser.setSelectedItem(null);
