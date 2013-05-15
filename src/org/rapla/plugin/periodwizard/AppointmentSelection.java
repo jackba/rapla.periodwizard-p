@@ -239,7 +239,7 @@ class AppointmentSelection extends AbstractAppointmentEditor
                 startTime = apps[apps.length-1].getStart();
                 endTime = apps[apps.length-1].getEnd();
             } else {
-                startTime = new Date(DateTools.MILLISECONDS_PER_HOUR * getCalendarOptions().getWorktimeStart());
+                startTime = new Date(DateTools.MILLISECONDS_PER_MINUTE * getCalendarOptions().getWorktimeStartMinutes());
                 endTime = new Date(startTime.getTime() + DateTools.MILLISECONDS_PER_HOUR);
             }
 

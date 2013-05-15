@@ -354,14 +354,14 @@ class WizardSequence extends RaplaGUIComponent
         Date end = null;
         Action nextAction;
 
-        public ReservationWeekview() throws RaplaException {
+        public ReservationWeekview() {
             builder = new SwingRaplaBuilder(getContext());
             content.setLayout(new BorderLayout());
             content.add(wv.getComponent(),BorderLayout.CENTER);
             CalendarOptions opt = getCalendarOptions();
             wv.setTimeZone( DateTools.getTimeZone());
             wv.setExcludeDays( opt.getExcludeDays() );
-            wv.setWorktime( opt.getWorktimeStart(), opt.getWorktimeEnd());
+            wv.setWorktimeMinutes( opt.getWorktimeStartMinutes(), opt.getWorktimeEndMinutes());
             wv.addBuilder(builder);
             //wv.setDateVisible(false);
             wv.addCalendarViewListener(this);
