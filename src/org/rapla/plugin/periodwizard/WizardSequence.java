@@ -301,13 +301,13 @@ class WizardSequence extends RaplaGUIComponent
         }
 
         public void setReservation(Reservation reservation) throws RaplaException {
-            allocatableSelection.setReservation(reservation);
+            allocatableSelection.setReservation(reservation, null);
             appointmentSelection.setReservation(reservation);
             appointmentSelection.addAppointmentListener(allocatableSelection);
         }
 
         public void refresh(ModificationEvent evt) throws RaplaException {
-            allocatableSelection.refresh(evt);
+            allocatableSelection.dataChanged(evt);
         }
 
         public void newAppointment(Date start,Date end) throws RaplaException {
